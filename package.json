@@ -1,0 +1,14 @@
+{
+  "name": "react-firebasecollection-hook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Timothy Metcalfe",
+  "license": "MIT",
+  "dependencies": {
+    "firebase": "^9.19.1",
+    "react": "^18.2.0",
+    "react-firebase-hooks": "^5.1.1"
+  }
+}
