@@ -10,6 +10,12 @@ import {
 } from "firebase/firestore";
 import { useCollection as rfhUseCollection } from "react-firebase-hooks/firestore";
 
+export const Statuses = {
+  loading: "loading",
+  errored: "errored",
+  loaded: "loaded",
+};
+
 export default function useCollection(db, dbName, { queries = [] } = {}) {
   const collectionRef = useMemo(() => collection(db, dbName), [db, dbName]);
   const [collectionData, loading, error] = rfhUseCollection(
@@ -62,7 +68,8 @@ export default function useCollection(db, dbName, { queries = [] } = {}) {
   );
 
   const status = useMemo(
-    () => (loading ? "loading" : error ? "error" : "loaded"),
+    () =>
+      loading ? Statuses.loading : error ? Statuses.errored : Statuses.loaded,
     [loading, error]
   );
 
