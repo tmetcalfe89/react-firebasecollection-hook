@@ -53,7 +53,7 @@ export default function useCollection(db, dbName, { queries = [] } = {}) {
 
   const modifyEntry = useCallback(
     async ({ id, ...card }) => {
-      await setDoc(doc(collectionRef, id), card);
+      await setDoc(doc(collectionRef, id), card, { merge: true });
       const getRes = await getDoc(doc(collectionRef, id));
       return { id, ...getRes.data() };
     },
